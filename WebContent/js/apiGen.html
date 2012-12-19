@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<script type="text/javascript" language="javascript">
+
+		function toApiString(obj, prefix) {
+			if (obj === null || obj === undefined) {
+				return '';
+			}
+			if (obj.constructor === Function) {
+				return obj.toString().match(/\(.*\)/);
+			}
+			if (obj.constructor === Object) {
+				var result = '';
+				var prefix2 = ',';
+				if (prefix === null || prefix === undefined) {
+					prefix = '';
+				}
+				else if (prefix !== '') {
+					prefix2 = prefix + '.';
+				}
+				for (var key in obj) {
+					var inner = toApiString(obj[key], prefix2 + key);
+					if (inner !== null) {
+						result += prefix2 + key + inner;
+					}
+				}
+				return result;
+			}
+
+			// Boolean, Number, String, Date, Math, RegExp, Global, ... ???
+			return '';
+		}
+
+		function toApi(obj, name, url, mode) {
+			var ident = '\n';
+			if (mode === 'xml') {
+				document.write(('<' + name + '>').replace(/</g, '&lt;').replace(/>/g, '&gt;'));
+				document.write(WsdlUtils.toXmlString(obj, ident, name).replace(/</g, '&lt;').replace(/>/g, '&gt;'));
+				document.write(('</' + name + '>').replace(/</g, '&lt;').replace(/>/g, '&gt;'));
+			}
+			else if (mode === 'js') {
+				document.write(name + ': ' + WsdlUtils.toJsString(obj, ident));
+			}
+			else {
+				if (url !== null && url !== undefined) {
+					document.write('<a href="' + url + '">#' + name + '</a>');
+				}
+				else {
+					document.write('#' + name);
+				}
+				document.write(toApiString(obj, '\n' + name));
+			}
+
+			document.write('<br/><br/>');
+		}
+
+		</script>
+	</head>
+	<body>
+	<script type="text/javascript" src="wsdl/WsdlUtils.js"></script>
+	<script type="text/javascript" src="wsdl/modules/WSMath.js"></script>
+	<script type="text/javascript" src="wsdl/modules/WSTest1.js"></script>
+<pre>
+<script type="text/javascript" language="javascript">
+var mode = null;
+toApi(WsdlUtils, 'WsdlUtils', null, mode);
+toApi(WSTest1, 'WSTest1', "wsdl/modules/WSTest1.js", mode);
+toApi(WSMath, 'WSMath', "wsdl/modules/WSMath.js", mode);
+//~ toApi({a: [1,2,{b: 3},{c: 4}]}, 'array1', null, 'js');
+</script>
+</pre>
+	</body>
+</html>
