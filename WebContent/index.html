@@ -64,7 +64,9 @@
 
 
 			var tests = [
-				"WSTest1.getArray2(1, 20, {mapResult: {offset: Number, limit: Number, items: {id: Number, live: Boolean}}})",
+				"WSTest1.getArray2(1, 2, {mapResult: {offset: Number, limit: Number, items: [{id: Number, live: Boolean}]}})",
+				"WSTest1.getArray(1, 2, {mapResult: [{id: Number, live: Boolean}]})",
+				"WSTest1.getArray2(1, 20, {mapResult: {offset: Number, limit: Number, items: [{id: Number, live: Boolean}]}})",
 				"WSTest1.getArray2(1, 20, {mapResult: Array})",
 				"WSTest1.getArray(1, 20, {mapResult: {id: Number, live: Boolean}})",
 				"WSTest1.getArray2(1, 20, {mapResult: null})",

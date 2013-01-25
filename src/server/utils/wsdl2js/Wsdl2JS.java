@@ -235,7 +235,7 @@ public class Wsdl2JS {
 		bw.append("			+'</soap:Envelope>',\n");
 		bw.append("		xpath: {\n");
 		for (Method m : methods) {
-			bw.append("			").append(m.getName()).append(": '/S:Envelope/S:Body/ns2:").append(m.getName()).append("Response/return',\n");
+			bw.append("			").append(m.getName()).append(": '/S:Envelope/S:Body/ns2:").append(m.getName()).append("Response',\n");
 		}
 		bw.append("		}\n");
 		bw.append("	}\n");

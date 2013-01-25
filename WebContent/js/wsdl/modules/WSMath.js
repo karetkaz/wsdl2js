@@ -7,9 +7,9 @@ WSMath = {
 			+	'<soap:Body>{SOAP_BODY}</soap:Body>'
 			+'</soap:Envelope>',
 		xpath: {
-			pow: '/S:Envelope/S:Body/ns2:powResponse/return',
-			PI: '/S:Envelope/S:Body/ns2:PIResponse/return',
-			sin: '/S:Envelope/S:Body/ns2:sinResponse/return',
+			pow: '/S:Envelope/S:Body/ns2:powResponse',
+			PI: '/S:Envelope/S:Body/ns2:PIResponse',
+			sin: '/S:Envelope/S:Body/ns2:sinResponse',
 		}
 	}
 };

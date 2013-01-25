@@ -76,11 +76,12 @@ var WsdlUtils = {
 			if (toType === undefined) {
 				toType = Object;
 			}
-			else if (toType === Array) {}
+
 			else if (toType === Boolean || toType.constructor === Boolean) {}
 			else if (toType === Number || toType.constructor === Number) {}
 			else if (toType === String || toType.constructor === String) {}
 			else if (toType === Object || toType.constructor === Object) {}
+			else if (toType === Array || toType.constructor === Array) {}
 			else {
 				toType = null;
 			}
@@ -296,11 +297,18 @@ var WsdlUtils = {
 	},
 
 	getObjectByXPath: function(document, xpath, mapVal) {
+		function isArray(obj) {
+			if (obj === null || obj === undefined) {
+				return false;
+			}
+			return obj.constructor === Array;
+		}
+
 		function xmlToObject(xml, attrs, mapVal) {
 			var key = xml.nodeType;
 			var obj = {};
 
-			if (key == 3) {
+			if (key === 3) {
 				if (mapVal === Boolean) {
 					switch (xml.nodeValue.toLowerCase()) {
 						/*default:
@@ -326,32 +334,49 @@ var WsdlUtils = {
 
 				return xml.nodeValue;
 			}
-			if (key == 1 && attrs && xml.attributes.length) {
+
+			/*if (key == 1 && attrs && xml.attributes.length) {
 				var attributes = {};
 				for (var i = 0; i < xml.attributes.length; i++) {
 					attributes[xml.attributes[i].nodeName] = xml.attributes[i].nodeValue;
 				}
 				obj["@attributes"] = attributes;
+			}*/
+
+			var mapArray = {};
+			var getArray = false;
+
+			if (isArray(mapVal)) {
+				mapVal = mapVal[0];
+				getArray = true;
 			}
 
-			if (xml.childNodes.length == 1 && xml.firstChild.nodeType == 3) {
-				return xmlToObject(xml.firstChild, attrs, mapVal);
+			// primitive: <tag>value</tag>
+			if (xml.childNodes.length === 1 && xml.firstChild.nodeType === 3) {
+				obj = xmlToObject(xml.firstChild, attrs, mapVal);
 			}
-
-			for (var n = 0; n < xml.childNodes.length; n++) {
+			else for (var n = 0; n < xml.childNodes.length; n++) {
 				var child = xml.childNodes[n];
 				key = child.nodeName;
+				var mapField = mapVal && mapVal[key];
+
 				if (obj.hasOwnProperty(key)) {
-					if (obj[key].constructor !== Array) {
-						obj[key] = [obj[key]];
+					if (!mapArray.hasOwnProperty(key)) {
+						if (isArray(mapField)) {
+							mapArray[key] = mapField[0];
+						}
+						else {
+							mapArray[key] = mapField;
+							obj[key] = [obj[key]];
+						}
 					}
-					obj[key].push(xmlToObject(child, attrs, mapVal && mapVal[key]));
+					obj[key].push(xmlToObject(child, attrs, mapArray[key]));
 				}
 				else {
-					obj[key] = xmlToObject(child, attrs, mapVal && mapVal[key]);
+					obj[key] = xmlToObject(child, attrs, mapField);
 				}
 			}
-			return obj;
+			return getArray ? [obj] : obj;
 		}
 
 		if (document && xpath) {
@@ -362,21 +387,21 @@ var WsdlUtils = {
 				mapVal = Object;
 			}
 			else if (mapVal === Boolean || mapVal.constructor == Boolean) {
-				var resultSet = evaluator.evaluate(xpath, document, WsdlUtils.nsDoc.resolver, XPathResult.BOOLEAN_TYPE, null);
+				var resultSet = evaluator.evaluate(xpath + '/return', document, WsdlUtils.nsDoc.resolver, XPathResult.BOOLEAN_TYPE, null);
 				if (resultSet.resultType == XPathResult.BOOLEAN_TYPE) {
 					return resultSet.booleanValue;
 				}
 				return mapVal === Boolean ? undefined : mapVal;
 			}
 			else if (mapVal === Number || mapVal.constructor == Number) {
-				var resultSet = evaluator.evaluate(xpath, document, WsdlUtils.nsDoc.resolver, XPathResult.NUMBER_TYPE, null);
+				var resultSet = evaluator.evaluate(xpath + '/return', document, WsdlUtils.nsDoc.resolver, XPathResult.NUMBER_TYPE, null);
 				if (resultSet.resultType == XPathResult.NUMBER_TYPE) {
 					return resultSet.numberValue;
 				}
 				return mapVal === Number ? undefined : mapVal;
 			}
 			else if (mapVal === String || mapVal.constructor == String) {
-				var resultSet = evaluator.evaluate(xpath, document, WsdlUtils.nsDoc.resolver, XPathResult.STRING_TYPE, null);
+				var resultSet = evaluator.evaluate(xpath + '/return', document, WsdlUtils.nsDoc.resolver, XPathResult.STRING_TYPE, null);
 				if (resultSet.resultType == XPathResult.STRING_TYPE) {
 					return resultSet.stringValue;
 				}
@@ -387,18 +412,20 @@ var WsdlUtils = {
 			if (resultSet.resultType == XPathResult.UNORDERED_NODE_ITERATOR_TYPE) {
 				var it = resultSet.iterateNext();
 				if (it) {
-					result = xmlToObject(it, false, mapVal);
-					if (mapVal === Array) {
-						result = [result];
-					}
+					var mapping = {};
+					mapping['return'] = mapVal;
+					result = xmlToObject(it, false, mapping);
 				}
-				while (it = resultSet.iterateNext()) {
+				if (resultSet.iterateNext()) {
+					throw "invalid webservice result.";
+				}
+				/*while (it = resultSet.iterateNext()) {
 					if (result.constructor !== Array) {
 						result = [result];
 					}
 					result.push(xmlToObject(it, false, mapVal));
-				}
-				return result;
+				}*/
+				return result['return'];
 			}
 		}
 		return undefined;
@@ -444,4 +471,3 @@ var WsdlUtils = {
 		}
 	}
 };
-

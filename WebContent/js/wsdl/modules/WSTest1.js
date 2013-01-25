@@ -7,18 +7,18 @@ WSTest1 = {
 			+	'<soap:Body>{SOAP_BODY}</soap:Body>'
 			+'</soap:Envelope>',
 		xpath: {
-			strcat: '/S:Envelope/S:Body/ns2:strcatResponse/return',
-			getArray2: '/S:Envelope/S:Body/ns2:getArray2Response/return',
-			getServerTime: '/S:Envelope/S:Body/ns2:getServerTimeResponse/return',
-			getArray: '/S:Envelope/S:Body/ns2:getArrayResponse/return',
+			getArray2: '/S:Envelope/S:Body/ns2:getArray2Response',
+			strcat: '/S:Envelope/S:Body/ns2:strcatResponse',
+			getServerTime: '/S:Envelope/S:Body/ns2:getServerTimeResponse',
+			getArray: '/S:Envelope/S:Body/ns2:getArrayResponse',
 		}
 	}
 };
-WSTest1.strcat = function(a, b, callBack) {
-	return WsdlUtils.WsdlInvoke(WSTest1.module, 'strcat', {a:a, b:b}, callBack);
-};
 WSTest1.getArray2 = function(a, b, callBack) {
 	return WsdlUtils.WsdlInvoke(WSTest1.module, 'getArray2', {a:a, b:b}, callBack);
+};
+WSTest1.strcat = function(a, b, callBack) {
+	return WsdlUtils.WsdlInvoke(WSTest1.module, 'strcat', {a:a, b:b}, callBack);
 };
 WSTest1.getServerTime = function(callBack) {
 	return WsdlUtils.WsdlInvoke(WSTest1.module, 'getServerTime', {}, callBack);
