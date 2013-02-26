@@ -6,50 +6,45 @@
 
 		<!-- ** Javascript ** -->
 		<script type="text/javascript" src="js/wsdl/WsdlUtils.js"></script>
-		<script type="text/javascript" src="js/wsdl/modules/WSTest1.js"></script>
+		<script type="text/javascript" src="js/wsdl/modules/WSTest.js"></script>
 		<script type="text/javascript" src="js/wsdl/modules/WSMath.js"></script>
 
-		<script type="text/javascript" src="js/libs/mootools-core.js"></script>
-
-		<script type="text/javascript" src="js/libs/omnigrid/mootools-1.2.1.js"></script>
-		<script type="text/javascript" src="js/libs/omnigrid/mootools-1.2-more.js"></script>
-		<!-- <link type="text/css" href="js/libs/omnigrid/omnigrid.css"/> -->
-		<link rel="stylesheet" media="screen" href="js/libs/omnigrid/omnigrid.css" type="text/css" />
-		<script type="text/javascript" src="js/libs/omnigrid/omnigrid.js"></script>
-
-		<style>
-		.omnigrid div.fbutton .add {
-			background:transparent url(images/add.png) no-repeat scroll left center;
-		}
-		.omnigrid div.fbutton .delete {
-			background:transparent url(images/delete.png) no-repeat scroll left center;
-		}
-		</style>
 		<script type="application/javascript">
 			function getServerTime() {
-				//~ document.getElementById('txtResult').value = WSTest1.getServerTime();
-				/*WSTest1.getServerTime(function(result) {
+				//~ document.getElementById('txtResult').value = WSTest.getServerTime();
+				/*WSTest.getServerTime(function(result) {
 					document.getElementById('txtResult').value = result;
 				});// */
-				/*WSTest1.getServerTime({mapResult: String, onSuccess: function(result) {
+				/*WSTest.getServerTime({mapResult: String, onSuccess: function(result) {
 					document.getElementById('txtResult').value = result;
 				}});// */
-				WSTest1.getServerTime({mapResult: null, onSuccess: function(xml) {
+				WSTest.getServerTime({mapResult: null, onSuccess: function(xml) {
 					document.getElementById('txtResponse').value = WsdlUtils.xmlToString(xml);
-					document.getElementById('txtResult').value = WsdlUtils.getNumberByXPath(xml, WSTest1.module.xpath.getServerTime);
+					document.getElementById('txtResult').value = WsdlUtils.getNumberByXPath(xml, WSTest.module.xpath.getServerTime);
 				}});// */
 				
-				/*WSTest1.strcat('string1', 'string2', {mapResult: null, onSuccess: function(xml) {
+				/*WSTest.strcat('string1', 'string2', {mapResult: null, onSuccess: function(xml) {
 					document.getElementById('txtResponse').value = WsdlUtils.xmlToString(xml);
-					document.getElementById('txtResult').value = WsdlUtils.getStringByXPath(xml, WSTest1.module.xpath.strcat);
+					document.getElementById('txtResult').value = WsdlUtils.getStringByXPath(xml, WSTest.module.xpath.strcat);
 				}});// */
+			}
+			function login() {
+				WSTest.login('user', '123456', function(sid) {
+					console.log(sid);
+					var c_name = "sessionid";
+					var exdays = 20000;
+					var exdate = new Date();
+					exdate.setDate(exdate.getDate() + exdays);
+					var c_value = escape(sid) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
+					document.cookie = c_name + "=" + c_value;
+					// */
+				});
 			}
 		</script>
 	</head>
 
 	<body>
 		<a href="omnigrid.html">Grid example</a><br />
-		<div id="mygrid" ></div>
 		<input type="button" onclick="getServerTime()" value="server time"/>
 		<input id="txtResult" /><br />
 		<textArea id="txtResponse" rows="10" cols="30"></textArea><br />
@@ -64,17 +59,17 @@
 
 
 			var tests = [
-				"WSTest1.getArray2(1, 2, {mapResult: {offset: Number, limit: Number, items: [{id: Number, live: Boolean}]}})",
-				"WSTest1.getArray(1, 2, {mapResult: [{id: Number, live: Boolean}]})",
-				"WSTest1.getArray2(1, 20, {mapResult: {offset: Number, limit: Number, items: [{id: Number, live: Boolean}]}})",
-				"WSTest1.getArray2(1, 20, {mapResult: Array})",
-				"WSTest1.getArray(1, 20, {mapResult: {id: Number, live: Boolean}})",
-				"WSTest1.getArray2(1, 20, {mapResult: null})",
-				"WSTest1.getArray(1, 20, {mapResult: null})",
-				"WSTest1.getArray2(1, 20, {})",
-				"WSTest1.getArray(1, 20, {})",
-				"WSTest1.getArray2(1, 20)",
-				"WSTest1.getArray(1, 20)",
+				"WSTest.getArray2(1, 2, {mapResult: {offset: Number, limit: Number, items: [{id: Number, live: Boolean}]}})",
+				"WSTest.getArray(1, 2, {mapResult: [{id: Number, live: Boolean}]})",
+				"WSTest.getArray2(1, 20, {mapResult: {offset: Number, limit: Number, items: [{id: Number, live: Boolean}]}})",
+				"WSTest.getArray2(1, 20, {mapResult: Array})",
+				"WSTest.getArray(1, 20, {mapResult: {id: Number, live: Boolean}})",
+				"WSTest.getArray2(1, 20, {mapResult: null})",
+				"WSTest.getArray(1, 20, {mapResult: null})",
+				"WSTest.getArray2(1, 20, {})",
+				"WSTest.getArray(1, 20, {})",
+				"WSTest.getArray2(1, 20)",
+				"WSTest.getArray(1, 20)",
 			];
 			for (var i = 0; i < tests.length; i += 1) {
 				document.write('<a href="javascript:log(' + tests[i] + ')">' + tests[i] + '</a> <br />');

@@ -1,0 +1,18 @@
+[Mon Feb 18 09:55:40 EET 2013]All modules published
+[Mon Feb 18 09:55:40 EET 2013]Access the URL in browser http://localhost:8089/index.html
+[Mon Feb 18 09:58:33 EET 2013]All modules published
+[Mon Feb 18 09:58:33 EET 2013]Access the URL in browser http://localhost:8089/index.html
+[Mon Feb 18 10:58:38 EET 2013]All modules published
+[Mon Feb 18 10:58:38 EET 2013]Access the URL in browser http://localhost:8089/index.html
+[Mon Feb 18 11:01:16 EET 2013]All modules published
+[Mon Feb 18 11:01:16 EET 2013]Access the URL in browser http://localhost:8089/index.html
+[Mon Feb 18 11:03:49 EET 2013]All modules published
+[Mon Feb 18 11:03:49 EET 2013]Access the URL in browser http://10.0.2.15:8089/index.html
+[Mon Feb 18 11:07:27 EET 2013]All modules published
+[Mon Feb 18 11:07:27 EET 2013]Access the URL in browser http://localhost:8089/index.html
+[Mon Feb 18 11:09:35 EET 2013]All modules published
+[Mon Feb 18 11:09:35 EET 2013]Access the URL in browser http://127.0.0.1:8089/index.html
+[Tue Feb 26 09:40:38 EET 2013]All modules published
+[Tue Feb 26 09:40:38 EET 2013]Access the URL in browser http://127.0.0.1:8089/index.html
+[Tue Feb 26 09:44:59 EET 2013]All modules published
+[Tue Feb 26 09:44:59 EET 2013]Access the URL in browser http://127.0.0.1:8089/index.html

@@ -6,7 +6,7 @@
 
 		<!-- ** Javascript ** -->
 		<script type="text/javascript" src="js/wsdl/WsdlUtils.js"></script>
-		<script type="text/javascript" src="js/wsdl/modules/WSTest1.js"></script>
+		<script type="text/javascript" src="js/wsdl/modules/WSTest.js"></script>
 		<script type="text/javascript" src="js/wsdl/modules/WSMath.js"></script>
 
 		<script type="text/javascript" src="js/libs/mootools-core.js"></script>
@@ -73,7 +73,7 @@
 						loadData: function(params) {
 							var count = +params.perpage;
 							var offset = (+params.page - 1) * count;
-							WSTest1.getArray2(offset, offset + count, {mapResult: {limit: Number, offset: Number, items: {id: Number, live: Boolean}}, onSuccess: function(data) {
+							WSTest.getArray2(offset, offset + count, {mapResult: {limit: Number, offset: Number, items: {id: Number, live: Boolean}}, onSuccess: function(data) {
 								datagrid.setData({
 									page: params.page,
 									total: data.limit,

@@ -1,26 +1,15 @@
 package server;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.Collections;
-
 import javax.activation.DataSource;
-import javax.activation.FileDataSource;
 import javax.annotation.Resource;
-import javax.xml.ws.Provider;
-import javax.xml.ws.Service;
-import javax.xml.ws.ServiceMode;
-import javax.xml.ws.WebServiceContext;
-import javax.xml.ws.WebServiceException;
-import javax.xml.ws.WebServiceProvider;
+import javax.xml.ws.*;
 import javax.xml.ws.handler.MessageContext;
+import java.io.*;
+import java.util.Collections;
 
 @WebServiceProvider
 @ServiceMode(value = Service.Mode.MESSAGE)
-public class HttpEndPoint  implements Provider<DataSource> {
+public class HttpEndPoint implements Provider<DataSource> {
 
 	@Resource
 	protected WebServiceContext wsContext;
@@ -103,7 +92,6 @@ public class HttpEndPoint  implements Provider<DataSource> {
 				return "";
 			}
 		};
-		// */
 	}
 
 	/**

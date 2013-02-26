@@ -109,11 +109,15 @@ var WsdlUtils = {
 				}
 				//~ if server gives error throw the response as an exception, and invoke the onError callback
 				else {
-					var detail = WsdlUtils.getObjectByXPath(http_request.responseXML, '/S:Envelope/S:Body/S:Fault/detail');
-					var exception = {message: WsdlUtils.getObjectByXPath(http_request.responseXML, '/S:Envelope/S:Body/S:Fault/faultstring', String)};
 
-					for (var key in detail) {
-						exception[key.replace(/^ns2:/, '')] = detail[key];
+					var error = WsdlUtils.getObjectByXPath(http_request.responseXML, '/S:Envelope/S:Body/S:Fault');
+					var exception = {message: error.faultstring};
+
+					if (error.hasOwnProperty('detail')) {
+						var detail = error.detail;
+						for (var key in detail) {
+							exception[key.replace(/^ns2:/, '')] = detail[key];
+						}
 					}
 
 					if (options.onError) {
@@ -380,6 +384,14 @@ var WsdlUtils = {
 		}
 
 		if (document && xpath) {
+			var retnode = null;
+			// hack for arrays
+			var lastMemeber = xpath.lastIndexOf('/');
+			if (lastMemeber >= 0) {
+				retnode = xpath.substr(lastMemeber + 1);
+				xpath = xpath.substr(0, lastMemeber);
+			}
+
 			var result = {};
 			var evaluator = new XPathEvaluator();
 
@@ -387,21 +399,21 @@ var WsdlUtils = {
 				mapVal = Object;
 			}
 			else if (mapVal === Boolean || mapVal.constructor == Boolean) {
-				var resultSet = evaluator.evaluate(xpath + '/return', document, WsdlUtils.nsDoc.resolver, XPathResult.BOOLEAN_TYPE, null);
+				var resultSet = evaluator.evaluate(xpath, document, WsdlUtils.nsDoc.resolver, XPathResult.BOOLEAN_TYPE, null);
 				if (resultSet.resultType == XPathResult.BOOLEAN_TYPE) {
 					return resultSet.booleanValue;
 				}
 				return mapVal === Boolean ? undefined : mapVal;
 			}
 			else if (mapVal === Number || mapVal.constructor == Number) {
-				var resultSet = evaluator.evaluate(xpath + '/return', document, WsdlUtils.nsDoc.resolver, XPathResult.NUMBER_TYPE, null);
+				var resultSet = evaluator.evaluate(xpath, document, WsdlUtils.nsDoc.resolver, XPathResult.NUMBER_TYPE, null);
 				if (resultSet.resultType == XPathResult.NUMBER_TYPE) {
 					return resultSet.numberValue;
 				}
 				return mapVal === Number ? undefined : mapVal;
 			}
 			else if (mapVal === String || mapVal.constructor == String) {
-				var resultSet = evaluator.evaluate(xpath + '/return', document, WsdlUtils.nsDoc.resolver, XPathResult.STRING_TYPE, null);
+				var resultSet = evaluator.evaluate(xpath, document, WsdlUtils.nsDoc.resolver, XPathResult.STRING_TYPE, null);
 				if (resultSet.resultType == XPathResult.STRING_TYPE) {
 					return resultSet.stringValue;
 				}
@@ -411,21 +423,20 @@ var WsdlUtils = {
 			var resultSet = evaluator.evaluate(xpath, document, WsdlUtils.nsDoc.resolver, XPathResult.ANY_TYPE, null);
 			if (resultSet.resultType == XPathResult.UNORDERED_NODE_ITERATOR_TYPE) {
 				var it = resultSet.iterateNext();
-				if (it) {
-					var mapping = {};
-					mapping['return'] = mapVal;
-					result = xmlToObject(it, false, mapping);
-				}
 				if (resultSet.iterateNext()) {
 					throw "invalid webservice result.";
 				}
-				/*while (it = resultSet.iterateNext()) {
-					if (result.constructor !== Array) {
-						result = [result];
+				if (it) {
+					if (retnode === null) {
+						return xmlToObject(it, false, mapVal);
 					}
-					result.push(xmlToObject(it, false, mapVal));
-				}*/
-				return result['return'];
+					else {
+						var mapping = {};
+						mapping[retnode] = mapVal;
+						return xmlToObject(it, false, mapping)[retnode];
+					}
+				}
+				return undefined;
 			}
 		}
 		return undefined;

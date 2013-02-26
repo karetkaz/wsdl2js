@@ -1,15 +1,15 @@
 WSMath = {
 	module: {
-		url: 'http://localhost:8089/wsdl/WSMath',
+		url: 'http://127.0.0.1:8089/wsdl/WSMath',
 		xmlns: 'http://modules.ws.server.com/',
 		poststr: '<?xml version="1.0" encoding="utf-8"?>'
 			+'<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">'
 			+	'<soap:Body>{SOAP_BODY}</soap:Body>'
 			+'</soap:Envelope>',
 		xpath: {
-			pow: '/S:Envelope/S:Body/ns2:powResponse',
-			PI: '/S:Envelope/S:Body/ns2:PIResponse',
-			sin: '/S:Envelope/S:Body/ns2:sinResponse',
+			pow: '/S:Envelope/S:Body/ns2:powResponse/return',
+			PI: '/S:Envelope/S:Body/ns2:PIResponse/return',
+			sin: '/S:Envelope/S:Body/ns2:sinResponse/return',
 		}
 	}
 };

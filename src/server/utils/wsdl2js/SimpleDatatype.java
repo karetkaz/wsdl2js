@@ -2,6 +2,7 @@ package server.utils.wsdl2js;
 
 public class SimpleDatatype implements AbstractDatatype {
 	protected String type;
+
 	public SimpleDatatype(String type) {
 		this.type = type;
 	}

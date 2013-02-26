@@ -1,24 +1,18 @@
 package server.utils.wsdl2js;
 
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
 import server.utils.wsdl2js.RawNode.NodeType;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Wsdl2JS {
 
@@ -41,14 +35,14 @@ public class Wsdl2JS {
 			@Override
 			public int read() throws IOException {
 				int result = -1;
-				for ( ; ; ) {
+				for (; ; ) {
 					result = input.read();
 					if (result == '\n')
 						continue;
 					if (result == '\r')
 						continue;
 					//if (result == '\t')
-						//continue;
+					//continue;
 					break;
 				}
 				return result;
@@ -83,13 +77,11 @@ public class Wsdl2JS {
 					if (rn.getName().endsWith("Response")) {
 						rn.setNodeType(NodeType.methodresponse);
 						methodResponses.put(rn.getName(), rn);
-					}
-					else {
+					} else {
 						rn.setNodeType(NodeType.method);
 						methods.put(rn.getName(), rn);
 					}
-				}
-				else {
+				} else {
 					rn.setNodeType(NodeType.type);
 					complexTypes.put(rn.getName(), rn);
 				}
@@ -127,18 +119,15 @@ public class Wsdl2JS {
 
 							if (datatypes.containsKey(typename)) {
 								dt = datatypes.get(typename);
-							}
-							else {
+							} else {
 								dt = new ComplexDatatype(typename);
 								datatypes.put(typename, dt);
 							}
-						}
-						else if (el2.getAttribute("type").startsWith("xs:")) {
+						} else if (el2.getAttribute("type").startsWith("xs:")) {
 							String typename = el2.getAttribute("type").substring(el2.getAttribute("type").indexOf(":") + 1);
 							if (datatypes.containsKey(typename)) {
 								dt = datatypes.get(typename);
-							}
-							else {
+							} else {
 								dt = new SimpleDatatype(typename);
 								datatypes.put(typename, dt);
 							}
@@ -156,8 +145,7 @@ public class Wsdl2JS {
 			ComplexDatatype ct;
 			if (datatypes.containsKey(el.getAttribute("name"))) {
 				ct = (ComplexDatatype) datatypes.get(el.getAttribute("name"));
-			}
-			else {
+			} else {
 				ct = new ComplexDatatype(el.getAttribute("name"));
 				datatypes.put(el.getAttribute("name"), ct);
 			}
@@ -173,18 +161,15 @@ public class Wsdl2JS {
 
 							if (datatypes.containsKey(typename)) {
 								dt = datatypes.get(typename);
-							}
-							else {
+							} else {
 								dt = new ComplexDatatype(typename);
 								datatypes.put(typename, dt);
 							}
-						}
-						else if (el2.getAttribute("type").startsWith("xs:")) {
+						} else if (el2.getAttribute("type").startsWith("xs:")) {
 							String typename = el2.getAttribute("type").substring(el2.getAttribute("type").indexOf(":") + 1);
 							if (datatypes.containsKey(typename)) {
 								dt = datatypes.get(typename);
-							}
-							else {
+							} else {
 								dt = new SimpleDatatype(typename);
 								datatypes.put(typename, dt);
 							}
@@ -235,7 +220,7 @@ public class Wsdl2JS {
 		bw.append("			+'</soap:Envelope>',\n");
 		bw.append("		xpath: {\n");
 		for (Method m : methods) {
-			bw.append("			").append(m.getName()).append(": '/S:Envelope/S:Body/ns2:").append(m.getName()).append("Response',\n");
+			bw.append("			").append(m.getName()).append(": '/S:Envelope/S:Body/ns2:").append(m.getName()).append("Response/return',\n");
 		}
 		bw.append("		}\n");
 		bw.append("	}\n");

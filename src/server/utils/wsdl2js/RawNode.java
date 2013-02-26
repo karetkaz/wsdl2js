@@ -1,4 +1,5 @@
 package server.utils.wsdl2js;
+
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
@@ -18,7 +19,7 @@ public class RawNode {
 		super();
 		this.node = node;
 		this.nodeType = nodeType;
-		if(node.getNodeName().endsWith("Response"))
+		if (node.getNodeName().endsWith("Response"))
 			nodeType = NodeType.methodresponse;
 	}
 
@@ -35,14 +36,14 @@ public class RawNode {
 	}
 
 	public String getName() {
-		Element e = (Element)node;
+		Element e = (Element) node;
 		return e.getAttribute("name");
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if(obj instanceof RawNode) {
-			return ((RawNode)obj).getName().equals(this.getName());
+		if (obj instanceof RawNode) {
+			return ((RawNode) obj).getName().equals(this.getName());
 		}
 		return false;
 	}

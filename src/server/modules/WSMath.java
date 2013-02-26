@@ -4,9 +4,9 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 
-@WebService(targetNamespace="http://modules.ws.server.com/")
+@WebService(targetNamespace = "http://modules.ws.server.com/")
 public class WSMath {
-	
+
 	@WebMethod
 	public double PI() {
 		return Math.PI;
@@ -17,6 +17,7 @@ public class WSMath {
 			@WebParam(name = "x") double x) {
 		return Math.sin(x);
 	}
+
 	@WebMethod
 	public double pow(
 			@WebParam(name = "x") double x,

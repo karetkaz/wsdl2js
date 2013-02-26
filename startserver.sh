@@ -17,4 +17,4 @@ fi
 
 echo
 echo launching server ...
-java -cp "bin/wsdl2js.jar" server.WSApplication
+java -cp "libs/sceye-fi.jar" -cp "bin/wsdl2js.jar" server.WSApplication
