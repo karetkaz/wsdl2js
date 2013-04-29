@@ -73,6 +73,13 @@ public class WSTest {
 	}
 
 	@WebMethod
+	public String strcat2(
+			@WebParam(name = "a") String a,
+			@WebParam(name = "b") String b) {
+		return a + b;
+	}
+
+	@WebMethod
 	public WSTestResult[] getArray(
 			@WebParam(name = "a") int a,
 			@WebParam(name = "b") int b) {

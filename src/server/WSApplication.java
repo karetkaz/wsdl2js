@@ -3,13 +3,11 @@ package server;
 import org.xml.sax.SAXException;
 import server.modules.WSMath;
 import server.modules.WSTest;
-import server.utils.wsdl2js.Wsdl2JS;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.ws.Endpoint;
 import javax.xml.ws.http.HTTPBinding;
 import java.io.*;
-import java.net.URL;
 import java.util.Date;
 import java.util.Properties;
 
@@ -66,6 +64,7 @@ public class WSApplication {
 		String wsdlPublish = properties.getProperty(WS_PUBLISH_WSDL);
 		String modulesPath = properties.getProperty(WS_MODULES_PATH);
 
+		Endpoint.publish("http://127.0.0.1/wwww", new WSTest());
 		try {
 			// publishing webservices
 			publishWsdlJs(wsdlPublish, modulesPath, new WSTest());
@@ -86,15 +85,8 @@ public class WSApplication {
 		String moduleName = module.getClass().getSimpleName();
 		wsdlURL += moduleName;
 		jsPath += moduleName + ".js";
-
 		Endpoint.publish(wsdlURL, module);
-
-		URL u = new URL(wsdlURL + "?xsd=1");
-		InputStream xsd = u.openStream();
-		FileOutputStream js = new FileOutputStream(jsPath);
-
-		Wsdl2JS wsdl2js = new Wsdl2JS(wsdlURL, moduleName);
-		wsdl2js.parseXml(xsd);
-		wsdl2js.printJs(js);
+		Wsdl2Js wsdl2js = new Wsdl2Js(wsdlURL, moduleName);
+		wsdl2js.parseWsdl().printJsInterface(new PrintStream(jsPath));
 	}
 }
