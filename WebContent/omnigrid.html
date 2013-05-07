@@ -73,13 +73,20 @@
 						loadData: function(params) {
 							var count = +params.perpage;
 							var offset = (+params.page - 1) * count;
-							WSTest.getArray2(offset, offset + count, {mapResult: {limit: Number, offset: Number, items: {id: Number, live: Boolean}}, onSuccess: function(data) {
+							/*WSTest.getArray2(offset, offset + count, {mapResult: {limit: Number, offset: Number, items: {id: Number, live: Boolean}}, onSuccess: function(data) {
 								datagrid.setData({
 									page: params.page,
 									total: data.limit,
 									data: data.items
 								});
-							}});
+							}});*/
+							WSTest.getArray2(offset, offset + count, function(data) {
+								datagrid.setData({
+									page: params.page,
+									total: data.limit,
+									data: data.items
+								});
+							});
 						}
 					},
 

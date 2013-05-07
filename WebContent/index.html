@@ -20,7 +20,7 @@
 				}});// */
 				WSTest.getServerTime({mapResult: null, onSuccess: function(xml) {
 					document.getElementById('txtResponse').value = WsdlUtils.xmlToString(xml);
-					document.getElementById('txtResult').value = WsdlUtils.getNumberByXPath(xml, WSTest.module.xpath.getServerTime);
+					document.getElementById('txtResult').value = WsdlUtils.getNumberByXPath(xml, WSTest['@module'].xpath.getServerTime);
 				}});// */
 				
 				/*WSTest.strcat('string1', 'string2', {mapResult: null, onSuccess: function(xml) {
@@ -70,6 +70,7 @@
 				"WSTest.getArray(1, 20, {})",
 				"WSTest.getArray2(1, 20)",
 				"WSTest.getArray(1, 20)",
+				"WSTest.getArray(1, 2)",
 			];
 			for (var i = 0; i < tests.length; i += 1) {
 				document.write('<a href="javascript:log(' + tests[i] + ')">' + tests[i] + '</a> <br />');

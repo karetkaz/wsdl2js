@@ -8,12 +8,12 @@ then
 	mkdir "bin"
 fi
 
-if [ ! -e "bin/wsdl2js.jar" ]
-then
-	echo compiling server ...
-	javac -sourcepath src -d bin src/server/*.java
-	jar cvf "bin/wsdl2js.jar" -C bin/ .
-fi
+#~ if [ ! -e "bin/wsdl2js.jar" ]
+#~ then
+echo compiling server ...
+javac -sourcepath src -d bin src/server/*.java
+jar cvf "bin/wsdl2js.jar" -C bin/ .
+#~ fi
 
 echo
 echo launching server ...

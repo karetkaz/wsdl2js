@@ -1,16 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" name="Default" comment="" />
+    <list default="true" id="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/server/modules/WSTestResult.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/server/modules/WSTestResults.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/HttpEndPoint.java" afterPath="$PROJECT_DIR$/src/server/HttpEndPoint.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/WSApplication.java" afterPath="$PROJECT_DIR$/src/server/WSApplication.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/modules/WSMath.java" afterPath="$PROJECT_DIR$/src/server/modules/WSMath.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/modules/WSTest.java" afterPath="$PROJECT_DIR$/src/server/modules/WSTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/Wsdl2Js.java" afterPath="$PROJECT_DIR$/src/server/Wsdl2Js.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/js/wsdl/WsdlUtils.js" afterPath="$PROJECT_DIR$/WebContent/js/wsdl/WsdlUtils.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ant.xml" afterPath="$PROJECT_DIR$/.idea/ant.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/js/wsdl/modules/apiGen.html" afterPath="$PROJECT_DIR$/WebContent/js/wsdl/modules/apiGen.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/index.html" afterPath="$PROJECT_DIR$/WebContent/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/css/menu.css" afterPath="$PROJECT_DIR$/WebContent/css/menu.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/js/libs/omnigrid/mootools-1.2-more.js" afterPath="$PROJECT_DIR$/WebContent/js/libs/omnigrid/mootools-1.2-more.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/js/libs/omnigrid/mootools-1.2.1.js" afterPath="$PROJECT_DIR$/WebContent/js/libs/omnigrid/mootools-1.2.1.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/js/libs/mootools-1.2.5-core-nc.js" afterPath="$PROJECT_DIR$/WebContent/js/libs/mootools-1.2.5-core-nc.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/js/libs/mootools-core.js" afterPath="$PROJECT_DIR$/WebContent/js/libs/mootools-core.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/js/libs/mootools-more.js" afterPath="$PROJECT_DIR$/WebContent/js/libs/mootools-more.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/omnigrid.html" afterPath="$PROJECT_DIR$/WebContent/omnigrid.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/js/libs/omnigrid/omnigrid.js" afterPath="$PROJECT_DIR$/WebContent/js/libs/omnigrid/omnigrid.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.properties" afterPath="$PROJECT_DIR$/server.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/startserver.cmd" afterPath="$PROJECT_DIR$/startserver.cmd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/startserver.sh" afterPath="$PROJECT_DIR$/startserver.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsdl2js.iml" afterPath="$PROJECT_DIR$/wsdl2js.iml" />
+    </list>
     <ignored path="wsdl2js.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="$PROJECT_DIR$/WebContent/js/wsdl/modules/WSTest.js" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1366642342283" ignored="false" />
-    <file path="/WSApplication.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1367235796409" ignored="false" />
+    <file path="/WSApplication.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1367947760918" ignored="false" />
     <file path="/Wsdl2JS.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1366899702383" ignored="false" />
     <file path="/Element.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1366745070928" ignored="false" />
     <file path="/ComplexType.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1366745856697" ignored="false" />
-    <file path="/fragment.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1367228498521" ignored="false" />
-    <file path="D:/projects/SwisscomTv/workspace-robotium/ui-robo-library/src/main/java/com/swisscom/swisscomTv/robotium/core/Library.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1367245324632" ignored="false" />
+    <file path="/fragment.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1367947190610" ignored="false" />
+    <file path="D:/projects/SwisscomTv/workspace-robotium/ui-robo-library/src/main/java/com/swisscom/swisscomTv/robotium/core/Library.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1367935174724" ignored="false" />
     <file path="/Library.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1367245299626" ignored="false" />
     <file path="$PROJECT_DIR$/../wsdlJuse/AndroidManifest.xml" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1366800579104" ignored="false" />
     <file path="$PROJECT_DIR$/../wsdlJuse/src/com/example/wsdlJuse/MyActivity.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1366802543866" ignored="false" />
@@ -20,7 +53,7 @@
     <file path="$PROJECT_DIR$/../wsdlJuse/gen/com/example/wsdlJuse/Manifest.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1366802528837" ignored="false" />
     <file path="$PROJECT_DIR$/../wsdlJuse/gen/com/example/wsdlJuse/R.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1366802528837" ignored="false" />
     <file path="D:/projects/SwisscomTv/workspace-robotium/ui-robo-library/src/main/java/com/swisscom/swisscomTv/robotium/core/Test.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1367235080001" ignored="false" />
-    <file path="/Test.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1366897878956" ignored="false" />
+    <file path="/Test.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1367935725720" ignored="false" />
     <file path="/WsComplexType.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1366819636904" ignored="false" />
     <file path="/WsOPeration.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1366805797171" ignored="false" />
     <file path="D:/projects/SwisscomTv/workspace-robotium/ui-robo-library/src/main/java/com/swisscom/swisscomTv/robotium/core/Loader.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1367226802266" ignored="false" />
@@ -30,13 +63,17 @@
     <file path="D:/projects/SwisscomTv/SwisscomTv2014/CustomComponents/EPG/target/generated-sources/r/com/swisscom/android/ui/R.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1366895914249" ignored="false" />
     <file path="D:/projects/SwisscomTv/SwisscomTv2014/CustomComponents/EPG/src/main/java/com/swisscom/android/ui/adapters/EpgBrowserChannelBaseAdapter.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1366895977357" ignored="false" />
     <file path="D:/projects/SwisscomTv/workspace-robotium/ui-robo-library/pom.xml" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1366899880999" ignored="false" />
-    <file path="/Wsdl2Js.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1367246468760" ignored="false" />
+    <file path="/Wsdl2Js.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1367939548226" ignored="false" />
     <file path="/Wsdl2Js.n.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1367236017641" ignored="false" />
     <file path="D:/projects/SwisscomTv/SwisscomTv2014/SwisscomUI/trunk/SwisscomTvUI/src/main/android/AndroidManifest.xml" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1367239280276" ignored="false" />
     <file path="D:/projects/SwisscomTv/SwisscomTv2014/pom.xml" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1367239280276" ignored="false" />
     <file path="D:/projects/SwisscomTv/SwisscomTv2014/CustomComponents/EPG/src/main/android/AndroidManifest.xml" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1367239280276" ignored="false" />
     <file path="D:/projects/SwisscomTv/SwisscomTv2014/SwisscomUI/trunk/SwisscomTvUI/src/main/java/com/swisscom/swisscomTv/activities/ActivityMain.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1367239335079" ignored="false" />
     <file path="/ActivityMain.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1367239327742" ignored="false" />
+    <file path="D:/projects/SwisscomTv/workspace-robotium/ui-robo-library/src/test/java/com/swisscom/swisscomTv/robotium/core/Test.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1367935740549" ignored="false" />
+    <file path="/Dummy.txt" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1367945642148" ignored="false" />
+    <file path="/a.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1367946408451" ignored="false" />
+    <file path="/WSTest.java" changelist="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" time="1367947535729" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,42 +89,6 @@
   </component>
   <component name="DebuggerManager">
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/server/modules/WSTest.java" line="85" class="server.modules.WSTest" package="server.modules">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
-    <exception_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint class_name="java.lang.NullPointerException" package_name="java.lang">
-        <option name="NOTIFY_CAUGHT" value="true" />
-        <option name="NOTIFY_UNCAUGHT" value="true" />
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </exception_breakpoints>
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -124,6 +125,26 @@
         <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
     </breakpoint_any>
+    <exception_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint class_name="java.lang.NullPointerException" package_name="java.lang">
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="&#13;&#13;JAVA" />
+        <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
+      </breakpoint>
+    </exception_breakpoints>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -133,62 +154,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Wsdl2Js.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Wsdl2Js.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/server/Wsdl2Js.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="309" column="52" selection-start="8674" selection-end="8674" vertical-scroll-proportion="0.33093524">
+            <state line="352" column="11" selection-start="9869" selection-end="9869" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WSApplication.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/server/WSApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="47" column="29" selection-start="1669" selection-end="1669" vertical-scroll-proportion="0.13921113">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#514#530#0" expanded="true" />
-                <element signature="class#WsOperation#0;class#Wsdl2Js#0" expanded="false" />
-                <element signature="method#WsOperation#0;class#WsOperation#0;class#Wsdl2Js#0" expanded="false" />
-                <element signature="method#Wsdl2Js#0;class#Wsdl2Js#0" expanded="false" />
-                <element signature="e#2790#2813#0" expanded="true" />
-                <element signature="method#readDocument#0;class#Wsdl2Js#0" expanded="false" />
-                <element signature="e#3078#3392#0" expanded="true" />
-                <element signature="e#3387#3388#0" expanded="true" />
-                <element signature="method#getAttribute#0;class#Wsdl2Js#0" expanded="false" />
-                <element signature="method#getFirstElementByTagName#0;class#Wsdl2Js#0" expanded="false" />
-                <element signature="method#printJavaInterface#0;class#Wsdl2Js#0" expanded="false" />
-                <element signature="method#printJsInterface#0;class#Wsdl2Js#0" expanded="false" />
-                <element signature="e#8321#8340#0" expanded="true" />
-                <element signature="e#8402#8427#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Wsdl2Js.n.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/Wsdl2Js.n.java">
+      <file leaf-file-name="WsdlUtils.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/js/wsdl/WsdlUtils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="276" column="19" selection-start="7496" selection-end="7496" vertical-scroll-proportion="0.0">
+            <state line="84" column="47" selection-start="2732" selection-end="2732" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TypeNotPresentException.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.7.0/src.zip!/java/lang/TypeNotPresentException.java">
+      <file leaf-file-name="WSTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/modules/WSTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="13" selection-start="1014" selection-end="1014" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WSApplication.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/WSApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="11" selection-start="2636" selection-end="2636" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="server.properties" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="43" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0">
+            <state line="103" column="52" selection-start="3184" selection-end="3184" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -201,11 +199,17 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/server/modules/WSTest.java" />
-        <option value="$PROJECT_DIR$/src/server/utils/wsdl2js/Wsdl2JS.java" />
         <option value="$PROJECT_DIR$/src/server/wsdl2js/RawNode.java" />
         <option value="$PROJECT_DIR$/src/server/wsdl2js/Element.java" />
         <option value="$PROJECT_DIR$/src/server/wsdl2js/WsElement.java" />
@@ -217,17 +221,220 @@
         <option value="$PROJECT_DIR$/src/server/wsdl2js/types/WsComplexType.java" />
         <option value="$PROJECT_DIR$/src/server/wsdl2js/Wsdl2JS.java" />
         <option value="$PROJECT_DIR$/src/server/wsdl2js/Wsdl2Js.java" />
-        <option value="$PROJECT_DIR$/src/server/WSApplication.java" />
         <option value="$PROJECT_DIR$/src/server/Wsdl2Js.n.java" />
         <option value="$PROJECT_DIR$/src/server/Wsdl2Js.java" />
+        <option value="$PROJECT_DIR$/server.properties" />
+        <option value="$PROJECT_DIR$/src/server/modules/WSTest.java" />
+        <option value="$PROJECT_DIR$/src/server/WSApplication.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1920" />
-    <option name="height" value="1040" />
+    <option name="x" value="-1" />
+    <option name="y" value="25" />
+    <option name="width" value="1922" />
+    <option name="height" value="1056" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Abstraction issues</id>
+          </State>
+          <State>
+            <id>Android Lint</id>
+          </State>
+          <State>
+            <id>Assignment issues</id>
+          </State>
+          <State>
+            <id>Assignment issuesGroovy</id>
+          </State>
+          <State>
+            <id>Class metrics</id>
+          </State>
+          <State>
+            <id>Class structure</id>
+          </State>
+          <State>
+            <id>Cloning issues</id>
+          </State>
+          <State>
+            <id>Code maturity issues</id>
+          </State>
+          <State>
+            <id>Code style issues</id>
+          </State>
+          <State>
+            <id>Concurrency annotation issues</id>
+          </State>
+          <State>
+            <id>Control FlowGroovy</id>
+          </State>
+          <State>
+            <id>Control flow issues</id>
+          </State>
+          <State>
+            <id>Data flow issues</id>
+          </State>
+          <State>
+            <id>Data flow issuesGroovy</id>
+          </State>
+          <State>
+            <id>Declaration redundancy</id>
+          </State>
+          <State>
+            <id>DeclarationGroovy</id>
+          </State>
+          <State>
+            <id>Dependency issues</id>
+          </State>
+          <State>
+            <id>Encapsulation issues</id>
+          </State>
+          <State>
+            <id>Error handling</id>
+          </State>
+          <State>
+            <id>Error handlingGroovy</id>
+          </State>
+          <State>
+            <id>GPath inspectionsGroovy</id>
+          </State>
+          <State>
+            <id>General</id>
+          </State>
+          <State>
+            <id>Groovy</id>
+          </State>
+          <State>
+            <id>Inheritance issues</id>
+          </State>
+          <State>
+            <id>Initialization issues</id>
+          </State>
+          <State>
+            <id>Internationalization issues</id>
+          </State>
+          <State>
+            <id>J2ME issues</id>
+          </State>
+          <State>
+            <id>JUnit issues</id>
+          </State>
+          <State>
+            <id>Java language level issues</id>
+          </State>
+          <State>
+            <id>Java language level migration aids</id>
+          </State>
+          <State>
+            <id>JavaBeans issues</id>
+          </State>
+          <State>
+            <id>Javadoc issues</id>
+          </State>
+          <State>
+            <id>Logging issues</id>
+          </State>
+          <State>
+            <id>Memory issues</id>
+          </State>
+          <State>
+            <id>Method MetricsGroovy</id>
+          </State>
+          <State>
+            <id>Method metrics</id>
+          </State>
+          <State>
+            <id>Modularization issues</id>
+          </State>
+          <State>
+            <id>Naming ConventionsGroovy</id>
+          </State>
+          <State>
+            <id>Naming conventions</id>
+          </State>
+          <State>
+            <id>Numeric issues</id>
+          </State>
+          <State>
+            <id>OtherGroovy</id>
+          </State>
+          <State>
+            <id>Packaging issues</id>
+          </State>
+          <State>
+            <id>Pattern Validation</id>
+          </State>
+          <State>
+            <id>Performance issues</id>
+          </State>
+          <State>
+            <id>Plugin DevKit</id>
+          </State>
+          <State>
+            <id>Portability issues</id>
+          </State>
+          <State>
+            <id>Potentially confusing code constructsGroovy</id>
+          </State>
+          <State>
+            <id>Probable bugs</id>
+          </State>
+          <State>
+            <id>Probable bugsGroovy</id>
+          </State>
+          <State>
+            <id>Properties Files</id>
+          </State>
+          <State>
+            <id>Resource management issues</id>
+          </State>
+          <State>
+            <id>Security issues</id>
+          </State>
+          <State>
+            <id>Serialization issues</id>
+          </State>
+          <State>
+            <id>TestNG</id>
+          </State>
+          <State>
+            <id>Threading issues</id>
+          </State>
+          <State>
+            <id>Threading issuesGroovy</id>
+          </State>
+          <State>
+            <id>UI Form Problems</id>
+          </State>
+          <State>
+            <id>Visibility issues</id>
+          </State>
+          <State>
+            <id>XML</id>
+          </State>
+          <State>
+            <id>XPath</id>
+          </State>
+          <State>
+            <id>toString() issues</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Abstraction issues</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -289,35 +496,83 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsdl2js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsdl2js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsdl2js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsdl2js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="types" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.main.proportions" value="0.30000007" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="Errors" />
+    <property name="options.lastSelected" value="preferences.sourceCode.Java" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/server" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Wsdl2Js">
+  <component name="RunManager" selected="Application.WSApplication">
     <configuration default="false" name="WSApplication" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="server.WSApplication" />
       <option name="VM_PARAMETERS" />
@@ -429,8 +684,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Application.Wsdl2Js" />
-        <item index="1" class="java.lang.String" itemvalue="Application.WSApplication" />
+        <item index="0" class="java.lang.String" itemvalue="Application.WSApplication" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Wsdl2Js" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -439,6 +694,23 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="ea2a1ed0-b508-4ff3-9fa8-5a48f69f295d" name="Default" comment="" />
@@ -447,28 +719,49 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1040" extended-state="0" />
-    <editor active="true" />
+    <frame x="-1" y="25" width="1922" height="1056" extended-state="1" />
+    <editor active="false" />
     <layout>
+      <window_info id="Documentation" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51122993" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" x="99" y="125" width="1722" height="856" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289183" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44039735" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.51122993" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41925132" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35871965" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18514532" sideWeight="0.33554083" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.66445917" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18463181" sideWeight="0.48877007" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41925132" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286334" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -542,26 +835,40 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/server.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="43" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/Wsdl2Js.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="309" column="52" selection-start="8674" selection-end="8674" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/WSApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="11" selection-start="2636" selection-end="2636" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="43" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/Wsdl2Js.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#514#530#0" expanded="true" />
-            <element signature="class#WsOperation#0;class#Wsdl2Js#0" expanded="false" />
-            <element signature="method#WsOperation#0;class#WsOperation#0;class#Wsdl2Js#0" expanded="false" />
-            <element signature="method#Wsdl2Js#0;class#Wsdl2Js#0" expanded="false" />
-            <element signature="e#2790#2813#0" expanded="true" />
-            <element signature="method#readDocument#0;class#Wsdl2Js#0" expanded="false" />
-            <element signature="e#3078#3392#0" expanded="true" />
-            <element signature="e#3387#3388#0" expanded="true" />
-            <element signature="method#getAttribute#0;class#Wsdl2Js#0" expanded="false" />
-            <element signature="method#getFirstElementByTagName#0;class#Wsdl2Js#0" expanded="false" />
-            <element signature="method#printJavaInterface#0;class#Wsdl2Js#0" expanded="false" />
-            <element signature="method#printJsInterface#0;class#Wsdl2Js#0" expanded="false" />
-            <element signature="e#8321#8340#0" expanded="true" />
-            <element signature="e#8402#8427#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -572,18 +879,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/modules/WSTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="25" selection-start="2092" selection-end="2092" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/modules/WSMath.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="14" selection-start="263" selection-end="263" vertical-scroll-proportion="0.21101993" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/HttpEndPoint.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="13" selection-start="279" selection-end="279" vertical-scroll-proportion="0.10714286">
@@ -591,85 +886,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0/src.zip!/java/lang/ClassLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="434" column="0" selection-start="16641" selection-end="16641" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0/jre/lib/rt.jar!/sun/misc/URLClassPath.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="41" selection-start="1841" selection-end="1841" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0/src.zip!/java/lang/Long.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="403" column="0" selection-start="14509" selection-end="14509" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0/src.zip!/com/sun/org/apache/xerces/internal/impl/XMLEntityScanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1773" column="0" selection-start="69252" selection-end="69252" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0/src.zip!/java/net/URLClassLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="370" column="0" selection-start="13755" selection-end="13755" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="43" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0">
+        <state line="3" column="0" selection-start="124" selection-end="124" vertical-scroll-proportion="0.08704062">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0/src.zip!/java/lang/TypeNotPresentException.java">
+    <entry file="file://$PROJECT_DIR$/src/server/modules/WSMath.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="13" selection-start="1014" selection-end="1014" vertical-scroll-proportion="0.0">
+        <state line="14" column="14" selection-start="263" selection-end="263" vertical-scroll-proportion="0.29950082">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0/jre/lib/rt.jar!/com/sun/xml/internal/bind/v2/model/impl/ModelBuilder.class">
+    <entry file="file://$PROJECT_DIR$/WebContent/js/wsdl/WsdlUtils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="24" selection-start="925" selection-end="925" vertical-scroll-proportion="0.27450982">
+        <state line="84" column="47" selection-start="2732" selection-end="2732" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/WSApplication.java">
+    <entry file="jar:///usr/lib/jvm/java-7-oracle/jre/lib/rt.jar!/com/sun/xml/internal/ws/transport/http/HttpAdapter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="11" selection-start="2636" selection-end="2636" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/Wsdl2Js.n.java">
+    <entry file="jar:///usr/lib/jvm/java-7-oracle/jre/lib/rt.jar!/com/sun/xml/internal/bind/v2/model/impl/ModelBuilder.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="276" column="19" selection-start="7496" selection-end="7496" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/server/Wsdl2Js.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="309" column="52" selection-start="8674" selection-end="8674" vertical-scroll-proportion="0.33093524">
+        <state line="352" column="11" selection-start="9869" selection-end="9869" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-7-oracle/jre/lib/rt.jar!/sun/net/httpserver/UnmodifiableHeaders.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="34" selection-start="182" selection-end="212" vertical-scroll-proportion="0.17401393">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/modules/WSTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="52" selection-start="3184" selection-end="3184" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/WSApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="29" selection-start="1669" selection-end="1669" vertical-scroll-proportion="0.13921113">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#514#530#0" expanded="true" />
-            <element signature="class#WsOperation#0;class#Wsdl2Js#0" expanded="false" />
-            <element signature="method#WsOperation#0;class#WsOperation#0;class#Wsdl2Js#0" expanded="false" />
-            <element signature="method#Wsdl2Js#0;class#Wsdl2Js#0" expanded="false" />
-            <element signature="e#2790#2813#0" expanded="true" />
-            <element signature="method#readDocument#0;class#Wsdl2Js#0" expanded="false" />
-            <element signature="e#3078#3392#0" expanded="true" />
-            <element signature="e#3387#3388#0" expanded="true" />
-            <element signature="method#getAttribute#0;class#Wsdl2Js#0" expanded="false" />
-            <element signature="method#getFirstElementByTagName#0;class#Wsdl2Js#0" expanded="false" />
-            <element signature="method#printJavaInterface#0;class#Wsdl2Js#0" expanded="false" />
-            <element signature="method#printJsInterface#0;class#Wsdl2Js#0" expanded="false" />
-            <element signature="e#8321#8340#0" expanded="true" />
-            <element signature="e#8402#8427#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -731,6 +1008,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

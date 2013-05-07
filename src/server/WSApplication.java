@@ -6,10 +6,15 @@ import server.modules.WSTest;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.ws.Endpoint;
+import javax.xml.ws.WebServiceContext;
+import javax.xml.ws.handler.MessageContext;
 import javax.xml.ws.http.HTTPBinding;
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
+
+import com.sun.net.httpserver.Headers;
 
 public class WSApplication {
 	public static final String WS_PROPERTY_FILE = "server.properties";
@@ -20,19 +25,31 @@ public class WSApplication {
 	public static final String WS_MODULES_PATH = "modules.wsdl.folder";
 
 	public static final String LOGFILE = "log.txt";
+	public static final SimpleDateFormat DATEFMT = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
 
 	public static void log2File(String message) {
-		log2File(LOGFILE, message);
-		System.out.println(message);
+		log2File(LOGFILE, null, message);
 	}
 
-	public static void log2File(String path, String message) {
+	public static void log2File(WebServiceContext context, String message, Object... args) {
+		log2File(LOGFILE, context, message, args);
+	}
+
+	public static void log2File(String path, WebServiceContext context, String message, Object... args) {
 		BufferedWriter log = null;
 		try {
 			log = new BufferedWriter(new FileWriter("log.txt", true));
 			log.write("[");
-			log.write(new Date().toString());
+			log.write(DATEFMT.format(new Date()));
 			log.write("]");
+			if (context != null) {
+				log.write("(@");
+				log.write(((Headers) context.getMessageContext().get(MessageContext.HTTP_REQUEST_HEADERS)).getFirst("Host"));
+				log.write(") ");
+			}
+			if (args != null && args.length > 0) {
+				message = String.format(message, args);
+			}
 			log.write(message);
 			log.write("\n");
 		} catch (IOException e) {
@@ -42,10 +59,10 @@ public class WSApplication {
 				if (log != null)
 					log.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
+		System.out.println(message);
 	}
 
 	public static Properties properties;
@@ -64,7 +81,6 @@ public class WSApplication {
 		String wsdlPublish = properties.getProperty(WS_PUBLISH_WSDL);
 		String modulesPath = properties.getProperty(WS_MODULES_PATH);
 
-		Endpoint.publish("http://127.0.0.1/wwww", new WSTest());
 		try {
 			// publishing webservices
 			publishWsdlJs(wsdlPublish, modulesPath, new WSTest());

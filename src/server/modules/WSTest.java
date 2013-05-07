@@ -1,6 +1,9 @@
 package server.modules;
 
 import com.sun.net.httpserver.Headers;
+import server.WSApplication;
+import server.modules.types.WSTestResult;
+import server.modules.types.WSTestResults;
 
 import javax.annotation.Resource;
 import javax.jws.WebMethod;
@@ -44,6 +47,7 @@ public class WSTest {
 	public String login(
 			@WebParam(name = "username") String username,
 			@WebParam(name = "password") String password) throws Exception {
+		WSApplication.log2File(wsContext, "login('%s', '%s')", username, password);
 		if (password.equals("invalid")) {
 			new FileInputStream(new File("c:/System Volume Information/alma.txt"));
 			//int i = new int[]{1,2}[5];
@@ -57,11 +61,13 @@ public class WSTest {
 
 	@WebMethod
 	public String session() {
+		WSApplication.log2File(wsContext, "session()");
 		return getSession();
 	}
 
 	@WebMethod
 	public String getServerTime() {
+		WSApplication.log2File(wsContext, "getServerTime()");
 		return ("" + System.currentTimeMillis());
 	}
 
@@ -69,20 +75,17 @@ public class WSTest {
 	public String strcat(
 			@WebParam(name = "a") String a,
 			@WebParam(name = "b") String b) {
+		WSApplication.log2File(wsContext, "strcat('%s', '%s')", a, b);
 		return a + b;
 	}
 
-	@WebMethod
-	public String strcat2(
-			@WebParam(name = "a") String a,
-			@WebParam(name = "b") String b) {
-		return a + b;
-	}
 
 	@WebMethod
 	public WSTestResult[] getArray(
 			@WebParam(name = "a") int a,
 			@WebParam(name = "b") int b) {
+		WSApplication.log2File(wsContext, "getArray(%d, %d)", a, b);
+
 		WSTestResult result[] = new WSTestResult[b - a];
 		for (int i = 0; i < result.length; i += 1) {
 			result[i] = new WSTestResult();
@@ -98,6 +101,7 @@ public class WSTest {
 	public WSTestResults getArray2(
 			@WebParam(name = "a") int a,
 			@WebParam(name = "b") int b) {
+		WSApplication.log2File(wsContext, "getArray2(%d, %d)", a, b);
 		WSTestResults result = new WSTestResults();
 		result.offset = a;
 		result.limit = 2000;

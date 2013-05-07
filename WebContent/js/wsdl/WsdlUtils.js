@@ -7,39 +7,7 @@ var WsdlUtils = {
 	 * then whne the result finishes loading the callback will be executed.
 	**/
 	WsdlInvoke: function(module, func, args, options) {
-		function toXml(pl) {
-			/*var xml = '';
-			if (typeof(pl) == 'object') {
-				var isArray	= false;
-				if (pl)
-					isArray = pl.length !== undefined;
-				for (var p in pl) {
-					if (typeof(pl[p]) != 'function') {
-						var inner = toXml(pl[p], p);
-						if (isArray) {
-							if (id && p != pl.length - 1) {
-								xml +=  inner + '</' + id + '>'  + '<' + id + '>';
-							}
-							else {
-								xml += inner;
-							}
-						}
-						else {
-							if (pl[p] != null)
-								xml += '<' + p + '>' + inner + '</' + p + '>';
-							else
-								xml += '<' + p + '/>';
-						}
-					}
-				}
-			}
-			else if (typeof(pl) != 'function') {
-				xml = pl.toString().replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-			}
-			return xml;
-			*/
-			return WsdlUtils.toXmlString(pl, '', '');
-		}
+		function toXml(pl) {return WsdlUtils.toXmlString(pl, '', '');}
 
 		var poststr = '';
 		for(var key in args) {
@@ -74,7 +42,7 @@ var WsdlUtils = {
 			var toType = options.mapResult;
 
 			if (toType === undefined) {
-				toType = Object;
+				toType = module.mapResult[func];
 			}
 
 			else if (toType === Boolean || toType.constructor === Boolean) {}

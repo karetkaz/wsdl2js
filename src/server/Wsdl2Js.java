@@ -24,12 +24,12 @@ public class Wsdl2Js {
 		typeMap2Java.put("xs:int", "int");
 	}
 
-	/*private static final Map<String, String> typeMap2Js = new HashMap<String, String>();
+	private static final Map<String, String> typeMap2Js = new HashMap<String, String>();
 	static {
 		typeMap2Js.put("xs:string", "String");
 		typeMap2Js.put("xs:boolean", "Boolean");
 		typeMap2Js.put("xs:int", "Number");
-	}*/
+	}// */
 
 	private static class WsElement {
 		public final String name;
@@ -69,32 +69,26 @@ public class Wsdl2Js {
 			this.elements = elements;
 		}
 
-		/*public String toString(boolean asArgs) {
-			StringBuilder result = new StringBuilder();
-			for (WsElement element : elements) {
-				if (result.length() != 0) {
-					result.append(", ");
-				}
-				result.append(element.getType(typeMap2Java));
-				if (asArgs) {
-					result.append(' ').append(element.name);
-				}
-			}
-			return result.toString();
-		}*/
 	}
 
 	private static class WsOperation {
 
 		public final String name;
+		public final WsElement returns;
 		public final WsComplexType input;
-		public final WsComplexType output;
+		public final WsComplexType _output;
 		public final WsComplexType fault;
 
-		public WsOperation(String name, WsComplexType input, WsComplexType output, WsComplexType fault) {
+		public WsOperation(String name, WsComplexType input, WsComplexType _output, WsComplexType fault) {
 			this.name = name;
 			this.input = input;
-			this.output = output;
+			this._output = _output;
+			if (_output.elements != null && _output.elements.length == 1) {
+				this.returns = _output.elements[0];
+			}
+			else {
+				this.returns = null;
+			}
 			this.fault = fault;
 		}
 	}
@@ -152,7 +146,6 @@ public class Wsdl2Js {
 	}
 
 
-
 	private void printJavaTypes(PrintStream out, WsElement element) {
 		WsComplexType type = complexTypes.get(element.getType(typeMap2Java));
 		if (type != null && type.printed == false) {
@@ -198,8 +191,8 @@ public class Wsdl2Js {
 
 	public void printJavaInterface(PrintStream out) {
 		for (WsOperation operation : operations) {
-			if (operation.output != null && operation.output.elements != null) {
-				for (WsElement el : operation.output.elements) {
+			if (operation._output != null && operation._output.elements != null) {
+				for (WsElement el : operation._output.elements) {
 					printJavaTypes(out, el);
 				}
 			}
@@ -226,7 +219,7 @@ public class Wsdl2Js {
 
 		for (WsOperation operation : operations) {
 			out.print("\t");
-			printJavaArgs(out, operation.output, true);
+			printJavaArgs(out, operation._output, true);
 			out.print(' ');
 			out.print(operation.name);
 			out.print('(');
@@ -236,10 +229,57 @@ public class Wsdl2Js {
 		out.println("}");
 	}
 
+
+	private void printJsMapping(PrintStream out, WsElement element) {
+		WsComplexType type = complexTypes.get(element.getType(typeMap2Js));
+		if (type != null && type.printed == false) {
+
+			// print used classes first
+			for (WsElement structure : type.elements) {
+				printJavaTypes(out, structure);
+			}
+
+			// print the class
+			//out.println(String.format("var %s = %s", type.name, element.isArray ? "[" : element.isObject ? "{" : element.getType(typeMap2Js)));
+			out.println(String.format("var %s = {", type.name));
+			for (WsElement field : type.elements) {
+				if (field.isArray) {
+					out.println(String.format("\t%s: [%s],", field.name, field.getType(typeMap2Js)));
+				}
+				else {
+					out.println(String.format("\t%s: %s,", field.name, field.getType(typeMap2Js)));
+				}
+			}
+			//out.println(element.isArray ? "];" : element.isObject ? "};" : ";");
+			out.println("};");
+			type.printed = true;
+		}
+	}
+
 	public void printJsInterface(PrintStream out) throws IOException {
+
+		for (WsOperation operation : operations) {
+			if (operation._output != null && operation._output.elements != null) {
+				for (WsElement el : operation._output.elements) {
+					printJsMapping(out, el);
+				}
+			}
+			if (operation.input != null && operation.input.elements != null) {
+				for (WsElement el : operation.input.elements) {
+					printJsMapping(out, el);
+				}
+			}
+			if (operation.fault != null && operation.fault.elements != null) {
+				for (WsElement el : operation.fault.elements) {
+					printJsMapping(out, el);
+				}
+			}
+		}
+
+		//*
 		BufferedWriter bw = new BufferedWriter(new PrintWriter(out));
 		bw.append(module).append(" = {\n");
-		bw.append("	module: {\n");
+		bw.append("	'@module': {\n");
 		bw.append("		url: '").append(url).append("',\n");
 		bw.append("		xmlns: '").append(xmlns).append("',\n");
 		bw.append("		poststr: '<?xml version=\"1.0\" encoding=\"utf-8\"?>'\n");
@@ -250,7 +290,22 @@ public class Wsdl2Js {
 		for (WsOperation operation : operations) {
 			bw.append("			").append(operation.name).append(": '/S:Envelope/S:Body/ns2:").append(operation.name).append("Response/return',\n");
 		}
+		bw.append("		},\n");
+
+		bw.append("		mapResult: {\n");
+		for (WsOperation operation : operations) {
+			if (operation.returns == null) {
+				bw.append("			").append(operation.name).append(": ").append("undefined");
+			}
+			else if (operation.returns.isArray) {
+				bw.append("			").append(operation.name).append(": [").append(operation.returns.getType(typeMap2Js)).append("],\n");
+			}
+			else {
+				bw.append("			").append(operation.name).append(": ").append(operation.returns.getType(typeMap2Js)).append(",\n");
+			}
+		}
 		bw.append("		}\n");
+
 		bw.append("	}\n");
 		bw.append("};\n");
 
@@ -273,7 +328,7 @@ public class Wsdl2Js {
 				bw.append(", ");
 			}
 			bw.append("callBack) {\n");
-			bw.append("	return WsdlUtils.WsdlInvoke(").append(module).append(".module, '").append(operation.name).append("', {");
+			bw.append("	return WsdlUtils.WsdlInvoke(").append(module).append("['@module'], '").append(operation.name).append("', {");
 			if (operation.input != null && operation.input.elements != null) {
 				first = true;
 				for (WsElement arg : operation.input.elements) {
@@ -290,6 +345,7 @@ public class Wsdl2Js {
 			bw.append("};\n");
 		}
 		bw.flush();
+		// */
 	}
 
 	public Wsdl2Js parseWsdl() throws ParserConfigurationException, SAXException, IOException {
@@ -376,8 +432,8 @@ public class Wsdl2Js {
 		String wsdlURL = "http://127.0.0.1:8089/wsdl/WSTest";
 		Wsdl2Js wsdl2js = new Wsdl2Js(wsdlURL, "WSTest");
 		wsdl2js.parseWsdl();
-		//wsdl2js.printJsInterface(System.out);
-		wsdl2js.printJavaInterface(System.out);
+		wsdl2js.printJsInterface(System.out);
+		//wsdl2js.printJavaInterface(System.out);
 	}
 	// */
 }

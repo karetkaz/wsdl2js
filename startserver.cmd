@@ -6,7 +6,7 @@ cd %~dp0
 if not exist bin\nul mkdir bin
 IF ERRORLEVEL 1 goto ERROR
 
-if not exist "bin/wsdl2js.jar" (
+rem if not exist "bin/wsdl2js.jar" (
 
 echo compiling server ...
 
@@ -15,7 +15,7 @@ IF ERRORLEVEL 1 goto ERROR
 
 jar cvf bin/wsdl2js.jar -C bin/ .
 IF ERRORLEVEL 1 goto ERROR
-)
+rem )
 
 echo
 echo launching server ...
