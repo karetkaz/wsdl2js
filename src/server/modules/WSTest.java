@@ -14,6 +14,8 @@ import javax.xml.ws.handler.MessageContext;
 import java.io.File;
 import java.io.FileInputStream;
 
+import static server.WSApplication.Utils.getMethodName;
+
 @WebService(targetNamespace = "http://modules.ws.server.com/")
 public class WSTest {
 
@@ -47,7 +49,7 @@ public class WSTest {
 	public String login(
 			@WebParam(name = "username") String username,
 			@WebParam(name = "password") String password) throws Exception {
-		WSApplication.log2File(wsContext, "login('%s', '%s')", username, password);
+		WSApplication.log(wsContext, "%s('%s', '%s')", getMethodName(0), username, password);
 		if (password.equals("invalid")) {
 			new FileInputStream(new File("c:/System Volume Information/alma.txt"));
 			//int i = new int[]{1,2}[5];
@@ -61,13 +63,13 @@ public class WSTest {
 
 	@WebMethod
 	public String session() {
-		WSApplication.log2File(wsContext, "session()");
+		WSApplication.log(wsContext, "%s()", getMethodName(0));
 		return getSession();
 	}
 
 	@WebMethod
 	public String getServerTime() {
-		WSApplication.log2File(wsContext, "getServerTime()");
+		WSApplication.log(wsContext, "%s()", getMethodName(0));
 		return ("" + System.currentTimeMillis());
 	}
 
@@ -75,7 +77,7 @@ public class WSTest {
 	public String strcat(
 			@WebParam(name = "a") String a,
 			@WebParam(name = "b") String b) {
-		WSApplication.log2File(wsContext, "strcat('%s', '%s')", a, b);
+		WSApplication.log(wsContext, "%s('%s', '%s')", getMethodName(0), a, b);
 		return a + b;
 	}
 
@@ -84,7 +86,7 @@ public class WSTest {
 	public WSTestResult[] getArray(
 			@WebParam(name = "a") int a,
 			@WebParam(name = "b") int b) {
-		WSApplication.log2File(wsContext, "getArray(%d, %d)", a, b);
+		WSApplication.log(wsContext, "%s(%d, %d)", getMethodName(0), a, b);
 
 		WSTestResult result[] = new WSTestResult[b - a];
 		for (int i = 0; i < result.length; i += 1) {
@@ -101,7 +103,7 @@ public class WSTest {
 	public WSTestResults getArray2(
 			@WebParam(name = "a") int a,
 			@WebParam(name = "b") int b) {
-		WSApplication.log2File(wsContext, "getArray2(%d, %d)", a, b);
+		WSApplication.log(wsContext, "%s(%d, %d)", getMethodName(0), a, b);
 		WSTestResults result = new WSTestResults();
 		result.offset = a;
 		result.limit = 2000;

@@ -1,6 +1,7 @@
 package server;
 
 import javax.activation.DataSource;
+import javax.activation.FileDataSource;
 import javax.annotation.Resource;
 import javax.xml.ws.*;
 import javax.xml.ws.handler.MessageContext;
@@ -31,65 +32,59 @@ public class HttpEndPoint implements Provider<DataSource> {
 	 */
 	private DataSource get(final MessageContext mc) {
 		String pi = (String) mc.get(MessageContext.PATH_INFO);
-		if (pi == null)
+		if (pi == null || pi.equals("/")) {
 			pi = "/index.html";
-		else if (pi.equals("/"))
-			pi = "index.html";
-
-		final String path = pi;
-
-		File f = new File(WSApplication.properties.getProperty("content.html") + pi);
-
-		if (f.isDirectory()) {
-			if (pi.endsWith("/")) {
-				pi += "index.html";
-			} else {
-				pi += "/index.html";
-			}
+		}
+		if (!pi.startsWith("/")) {
+			pi = "/" + pi;
 		}
 
-		if (pi.contains("js/libs")) {
+		final File file = new File(WSApplication.properties.getProperty(WSApplication.WS_CONTENT_HTML) + pi);
+
+		if (file.getPath().startsWith(WSApplication.properties.getProperty(WSApplication.WS_CONTENT_CACHED))) {
 			mc.put(MessageContext.HTTP_RESPONSE_HEADERS, Collections.singletonMap("Cache-Control", Collections.singletonList("max-age=31536000,public")));
 		}
 
-		//return new FileDataSource(WSApplication.properties.getProperty(WSApplication.WS_CONTENT_ROOT) + path);
 		return new DataSource() {
-			String fileName = WSApplication.properties.getProperty(WSApplication.WS_CONTENT_ROOT) + path;
 
-			public InputStream getInputStream() {
-				InputStream is = null;
-				try {
-					is = new FileInputStream(fileName);
-				} catch (FileNotFoundException e) {
-					e.printStackTrace();
-				}
-				return is;
+			public InputStream getInputStream() throws FileNotFoundException {
+				return new FileInputStream(file);
 			}
 
-			public OutputStream getOutputStream() {
-				return null;
+			public OutputStream getOutputStream() throws FileNotFoundException {
+				return new FileOutputStream(file);
 			}
 
 			public String getContentType() {
+
+				String fileName = file.getName();
+
 				if (fileName.endsWith(".html"))
 					return "text/html";
+
 				if (fileName.endsWith(".htm"))
 					return "text/html";
+
 				if (fileName.endsWith(".css"))
 					return "text/css";
+
 				if (fileName.endsWith(".js"))
 					return "application/javascript";
+
 				if (fileName.endsWith(".png"))
 					return "image/png";
+
 				if (fileName.endsWith(".gif"))
 					return "image/gif";
+
 				if (fileName.endsWith(".jpg"))
 					return "image/jpg";
+
 				return "text/plain";
 			}
 
 			public String getName() {
-				return "";
+				return file.getName();
 			}
 		};
 	}

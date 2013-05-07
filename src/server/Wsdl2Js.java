@@ -21,6 +21,7 @@ public class Wsdl2Js {
 	static {
 		typeMap2Java.put("xs:string", "String");
 		typeMap2Java.put("xs:boolean", "boolean");
+		typeMap2Java.put("xs:double", "double");
 		typeMap2Java.put("xs:int", "int");
 	}
 
@@ -29,6 +30,7 @@ public class Wsdl2Js {
 		typeMap2Js.put("xs:string", "String");
 		typeMap2Js.put("xs:boolean", "Boolean");
 		typeMap2Js.put("xs:int", "Number");
+		typeMap2Js.put("xs:double", "Number");
 	}// */
 
 	private static class WsElement {
@@ -47,8 +49,12 @@ public class Wsdl2Js {
 		public String getType(Map<String, String> typeMap) {
 
 			// basic type
-			if (type.startsWith("xs:"))
+			if (type.startsWith("xs:")) {
+				if (!typeMap.containsKey(type)) {
+					throw new TypeNotPresentException(type, null);
+				}
 				return typeMap.get(type);
+			}
 
 			// declared type
 			if (isObject)
@@ -429,8 +435,8 @@ public class Wsdl2Js {
 
 	//*
 	public static void main(String[] args) throws Exception {
-		String wsdlURL = "http://127.0.0.1:8089/wsdl/WSTest";
-		Wsdl2Js wsdl2js = new Wsdl2Js(wsdlURL, "WSTest");
+		String wsdlURL = "http://127.0.0.1:8089/wsdl/WSMath";
+		Wsdl2Js wsdl2js = new Wsdl2Js(wsdlURL, "WSMath");
 		wsdl2js.parseWsdl();
 		wsdl2js.printJsInterface(System.out);
 		//wsdl2js.printJavaInterface(System.out);

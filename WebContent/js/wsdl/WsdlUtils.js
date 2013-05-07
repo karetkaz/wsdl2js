@@ -90,7 +90,7 @@ var WsdlUtils = {
 
 					if (options.onError) {
 						options.onError(exception);
-						//~ return undefined;
+						return undefined;
 					}
 					throw exception;
 				}
@@ -273,7 +273,7 @@ var WsdlUtils = {
 			if (obj === null || obj === undefined) {
 				return false;
 			}
-			return obj.constructor === Array;
+			return obj.constructor === Array || obj === Array;
 		}
 
 		function xmlToObject(xml, attrs, mapVal) {

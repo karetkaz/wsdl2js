@@ -17,39 +17,57 @@ import java.util.Properties;
 import com.sun.net.httpserver.Headers;
 
 public class WSApplication {
+
+	public static class Utils {
+		public static String getMethodName(final int depth) {
+			final StackTraceElement[] ste = Thread.currentThread().getStackTrace();
+			try {
+				StackTraceElement method = ste[depth + 2];
+				return String.format("%s.%s", method.getClassName(), method.getMethodName());
+			}
+			catch (ArrayIndexOutOfBoundsException e) {
+				return "";
+			}
+		}
+	}
+
 	public static final String WS_PROPERTY_FILE = "server.properties";
 
 	public static final String WS_PUBLISH_WSDL = "publish.wsdl.address";
-	public static final String WS_PUBLISH_HTML = "publish.html.address";
-	public static final String WS_CONTENT_ROOT = "content.root.folder";
 	public static final String WS_MODULES_PATH = "modules.wsdl.folder";
+
+	public static final String WS_PUBLISH_HTML = "publish.html.address";
+	public static final String WS_CONTENT_HTML = "content.html.folder";
+	public static final String WS_CONTENT_CACHED = "content.html.cached";
 
 	public static final String LOGFILE = "log.txt";
 	public static final SimpleDateFormat DATEFMT = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
 
-	public static void log2File(String message) {
-		log2File(LOGFILE, null, message);
+	public static void log(String message, Object... args) {
+		log(null, message, args);
 	}
 
-	public static void log2File(WebServiceContext context, String message, Object... args) {
-		log2File(LOGFILE, context, message, args);
+	public static void log(WebServiceContext context, String message, Object... args) {
+		log(LOGFILE, context, message, args);
 	}
 
-	public static void log2File(String path, WebServiceContext context, String message, Object... args) {
+	public static void log(String path, WebServiceContext context, String message, Object... args) {
+
+		if (args != null && args.length > 0) {
+			message = String.format(message, args);
+		}
+		String date = DATEFMT.format(new Date());
+		if (context != null) {
+			String host = ((Headers) context.getMessageContext().get(MessageContext.HTTP_REQUEST_HEADERS)).getFirst("Host");
+			message = String.format("[%s @%s] %s", date, host, message);
+		}
+		else {
+			message = String.format("[%s] %s", date, message);
+		}
+
 		BufferedWriter log = null;
 		try {
 			log = new BufferedWriter(new FileWriter("log.txt", true));
-			log.write("[");
-			log.write(DATEFMT.format(new Date()));
-			log.write("]");
-			if (context != null) {
-				log.write("(@");
-				log.write(((Headers) context.getMessageContext().get(MessageContext.HTTP_REQUEST_HEADERS)).getFirst("Host"));
-				log.write(") ");
-			}
-			if (args != null && args.length > 0) {
-				message = String.format(message, args);
-			}
 			log.write(message);
 			log.write("\n");
 		} catch (IOException e) {
@@ -65,11 +83,10 @@ public class WSApplication {
 		System.out.println(message);
 	}
 
-	public static Properties properties;
+	public static final Properties properties = new Properties();
 
 	static {
 		try {
-			properties = new Properties();
 			properties.load(new FileInputStream(WS_PROPERTY_FILE));
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -85,14 +102,14 @@ public class WSApplication {
 			// publishing webservices
 			publishWsdlJs(wsdlPublish, modulesPath, new WSTest());
 			publishWsdlJs(wsdlPublish, modulesPath, new WSMath());
-			log2File("All modules published");
+			log("All modules published");
 
 			// publishing the http endpoint
 			Endpoint.create(HTTPBinding.HTTP_BINDING, new HttpEndPoint()).publish(htmlPublish);
-			log2File("Access the URL in browser " + htmlPublish + "index.html");
+			log("Access the URL in browser %sindex.html", htmlPublish);
 
 		} catch (Exception e) {
-			log2File(e.getMessage());
+			log(e.getMessage());
 			throw e;
 		}// */
 	}

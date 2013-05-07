@@ -30,11 +30,6 @@
 	<body>
 		<div id="mygrid" ></div>
 		<script type="text/javascript">
-			function onGridSelect(evt) {
-				var str = 'row: '+evt.row+' indices: '+evt.indices;
-				//~ str += ' id: '+evt.target.getDataByRow(evt.row).id;
-				//~ alert( str );
-			}
 
 			function gridButtonClick(button, grid) {
 				alert(button + ": " + JSON.encode(grid.options.data[grid.selected[0]]));
@@ -73,13 +68,6 @@
 						loadData: function(params) {
 							var count = +params.perpage;
 							var offset = (+params.page - 1) * count;
-							/*WSTest.getArray2(offset, offset + count, {mapResult: {limit: Number, offset: Number, items: {id: Number, live: Boolean}}, onSuccess: function(data) {
-								datagrid.setData({
-									page: params.page,
-									total: data.limit,
-									data: data.items
-								});
-							}});*/
 							WSTest.getArray2(offset, offset + count, function(data) {
 								datagrid.setData({
 									page: params.page,
@@ -112,7 +100,12 @@
 					width:600,
 					height: 400
 				});
-				datagrid.addEvent('click', onGridSelect);
+
+				/*datagrid.addEvent('click', function(evt) {
+					var str = 'row: ' + evt.row + ' indices: ' + evt.indices;
+					str += ' id: ' + evt.target.getDataByRow(evt.row).id;
+					alert(str);
+				});*/
 			});
 		</script>
 	</body>
