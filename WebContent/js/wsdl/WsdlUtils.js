@@ -42,7 +42,7 @@ var WsdlUtils = {
 			var toType = options.mapResult;
 
 			if (toType === undefined) {
-				toType = module.mapResult[func];
+				toType = module.types[func];
 			}
 
 			else if (toType === Boolean || toType.constructor === Boolean) {}
@@ -70,7 +70,7 @@ var WsdlUtils = {
 						result = options.mapResult(result);
 					}
 					if (options.onSuccess) {
-						options.onSuccess(result);
+						options.onSuccess(result, http_request.responseXML);
 						return undefined;
 					}
 					return result;
@@ -89,7 +89,7 @@ var WsdlUtils = {
 					}
 
 					if (options.onError) {
-						options.onError(exception);
+						options.onError(exception, http_request.responseXML);
 						return undefined;
 					}
 					throw exception;
@@ -116,7 +116,7 @@ var WsdlUtils = {
 		return new XMLSerializer().serializeToString(xml);
 	},
 
-	toJsString: function(obj, prefix) {
+	toJsString: function toJsString(obj, prefix) {
 		if (obj === null || obj === undefined) {
 			return obj === null ? 'null' : 'undefined';
 		}
@@ -134,7 +134,7 @@ var WsdlUtils = {
 				prefix2 = prefix + '\t';
 			}
 			for (var key in obj) {
-				var inner = WsdlUtils.toJsString(obj[key], prefix2);
+				var inner = toJsString(obj[key], prefix2);
 				if (inner !== null) {
 					if (result !== '') {
 						result += ', ';
@@ -153,7 +153,7 @@ var WsdlUtils = {
 				prefix = '';
 			}
 			for (var idx = 0; idx < obj.length; idx += 1) {
-				var inner = WsdlUtils.toJsString(obj[idx], prefix);
+				var inner = toJsString(obj[idx], prefix);
 				if (inner !== null) {
 					if (result !== '') {
 						result += ', ';
@@ -174,7 +174,7 @@ var WsdlUtils = {
 		// Boolean, Number, Date, Math, RegExp, Global, ... ???
 		return obj.toString();
 	},
-	toXmlString: function(obj, prefix, key) {
+	toXmlString: function toXmlString(obj, prefix, key) {
 		if (obj === null || obj === undefined) {
 			//~ return obj === null ? 'null' : 'undefined';
 			return null;
@@ -193,7 +193,7 @@ var WsdlUtils = {
 				prefix2 = prefix + '\t';
 			}
 			for (var key in obj) {
-				var inner = WsdlUtils.toXmlString(obj[key], prefix2, key);
+				var inner = toXmlString(obj[key], prefix2, key);
 				if (inner !== null) {
 					result += prefix2 + '<' + key + '>' + inner + '</' + key + '>';
 				}
@@ -209,7 +209,7 @@ var WsdlUtils = {
 				prefix = '';
 			}
 			for (var idx = 0; idx < obj.length; idx += 1) {
-				var inner = WsdlUtils.toXmlString(obj[idx], prefix, key);
+				var inner = toXmlString(obj[idx], prefix, key);
 				if (inner !== null) {
 					if (result !== '') {
 						result += '</' + key + '>' + prefix + '<' + key + '>';

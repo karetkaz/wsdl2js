@@ -11,18 +11,22 @@
 
 		<script type="application/javascript">
 			function getServerTime() {
-				//~ document.getElementById('txtResult').value = WSTest.getServerTime();
-				/*WSTest.getServerTime(function(result) {
+				/* block until we have the answer from the call.
+				document.getElementById('txtResult').value = WSTest.getServerTime();
+				// */
+
+				/* execute callback assync when result is available.
+				WSTest.getServerTime(function(result, xml) {
+					document.getElementById('txtResponse').value = WsdlUtils.xmlToString(xml);
 					document.getElementById('txtResult').value = result;
 				});// */
-				/*WSTest.getServerTime({mapResult: String, onSuccess: function(result) {
+
+				//~ /* execute onSuccess assync, map the result to string
+				WSTest.getServerTime({mapResult: String, onSuccess: function(result, xml) {
+					document.getElementById('txtResponse').value = WsdlUtils.xmlToString(xml);
 					document.getElementById('txtResult').value = result;
 				}});// */
-				WSTest.getServerTime({mapResult: null, onSuccess: function(xml) {
-					document.getElementById('txtResponse').value = WsdlUtils.xmlToString(xml);
-					document.getElementById('txtResult').value = WsdlUtils.getNumberByXPath(xml, WSTest['@module'].xpath.getServerTime);
-				}});// */
-				
+
 				/*WSTest.strcat('string1', 'string2', {mapResult: null, onSuccess: function(xml) {
 					document.getElementById('txtResponse').value = WsdlUtils.xmlToString(xml);
 					document.getElementById('txtResult').value = WsdlUtils.getStringByXPath(xml, WSTest.module.xpath.strcat);

@@ -236,120 +236,147 @@ public class Wsdl2Js {
 	}
 
 
-	private void printJsMapping(PrintStream out, WsElement element) {
+	private void printJsMapping(BufferedWriter out, WsElement element) throws IOException {
 		WsComplexType type = complexTypes.get(element.getType(typeMap2Js));
 		if (type != null && type.printed == false) {
 
 			// print used classes first
 			for (WsElement structure : type.elements) {
-				printJavaTypes(out, structure);
+				printJsMapping(out, structure);
 			}
 
 			// print the class
 			//out.println(String.format("var %s = %s", type.name, element.isArray ? "[" : element.isObject ? "{" : element.getType(typeMap2Js)));
-			out.println(String.format("var %s = {", type.name));
+			out.append(String.format("\n\tvar %s = {", type.name));
 			for (WsElement field : type.elements) {
 				if (field.isArray) {
-					out.println(String.format("\t%s: [%s],", field.name, field.getType(typeMap2Js)));
+					out.append(String.format("\n\t\t%s: [%s],", field.name, field.getType(typeMap2Js)));
 				}
 				else {
-					out.println(String.format("\t%s: %s,", field.name, field.getType(typeMap2Js)));
+					out.append(String.format("\n\t\t%s: %s,", field.name, field.getType(typeMap2Js)));
 				}
 			}
 			//out.println(element.isArray ? "];" : element.isObject ? "};" : ";");
-			out.println("};");
+			out.append("\n\t};");
 			type.printed = true;
 		}
 	}
 
 	public void printJsInterface(PrintStream out) throws IOException {
 
+		BufferedWriter bw = new BufferedWriter(new PrintWriter(out));
+		bw.append("var ").append(module).append(" = ").append(module).append(" || (function(){");
+
 		for (WsOperation operation : operations) {
 			if (operation._output != null && operation._output.elements != null) {
 				for (WsElement el : operation._output.elements) {
-					printJsMapping(out, el);
+					printJsMapping(bw, el);
 				}
 			}
 			if (operation.input != null && operation.input.elements != null) {
 				for (WsElement el : operation.input.elements) {
-					printJsMapping(out, el);
+					printJsMapping(bw, el);
 				}
 			}
 			if (operation.fault != null && operation.fault.elements != null) {
 				for (WsElement el : operation.fault.elements) {
-					printJsMapping(out, el);
+					printJsMapping(bw, el);
 				}
 			}
 		}
 
-		//*
-		BufferedWriter bw = new BufferedWriter(new PrintWriter(out));
-		bw.append(module).append(" = {\n");
-		bw.append("	'@module': {\n");
-		bw.append("		url: '").append(url).append("',\n");
-		bw.append("		xmlns: '").append(xmlns).append("',\n");
-		bw.append("		poststr: '<?xml version=\"1.0\" encoding=\"utf-8\"?>'\n");
-		bw.append("			+'<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">'\n");
-		bw.append("			+	'<soap:Body>{SOAP_BODY}</soap:Body>'\n");
-		bw.append("			+'</soap:Envelope>',\n");
-		bw.append("		xpath: {\n");
+		bw.append("\n	var module = {");
+		bw.append("\n		url: '").append(url).append("',");
+		bw.append("\n		xmlns: '").append(xmlns).append("',");
+		bw.append("\n		poststr: '<?xml version=\"1.0\" encoding=\"utf-8\"?>'");
+		bw.append("\n			+'<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">'");
+		bw.append("\n			+	'<soap:Body>{SOAP_BODY}</soap:Body>'");
+		bw.append("\n			+'</soap:Envelope>',");
+		bw.append("\n		xpath: {");
+		boolean first = true;
 		for (WsOperation operation : operations) {
-			bw.append("			").append(operation.name).append(": '/S:Envelope/S:Body/ns2:").append(operation.name).append("Response/return',\n");
-		}
-		bw.append("		},\n");
-
-		bw.append("		mapResult: {\n");
-		for (WsOperation operation : operations) {
-			if (operation.returns == null) {
-				bw.append("			").append(operation.name).append(": ").append("undefined");
-			}
-			else if (operation.returns.isArray) {
-				bw.append("			").append(operation.name).append(": [").append(operation.returns.getType(typeMap2Js)).append("],\n");
+			if (!first) {
+				bw.append(",");
 			}
 			else {
-				bw.append("			").append(operation.name).append(": ").append(operation.returns.getType(typeMap2Js)).append(",\n");
+				first = false;
+			}
+			bw.append("\n			").append(operation.name).append(": '/S:Envelope/S:Body/ns2:").append(operation.name).append("Response/return'");
+		}
+		bw.append("\n		},");
+
+		bw.append("\n		types: {");
+
+		first = true;
+		for (WsOperation operation : operations) {
+			if (!first) {
+				bw.append(",");
+			}
+			else {
+				first = false;
+			}
+			if (operation.returns == null) {
+				bw.append("\n			").append(operation.name).append(": ").append("undefined");
+			}
+			else if (operation.returns.isArray) {
+				bw.append("\n			").append(operation.name).append(": [").append(operation.returns.getType(typeMap2Js)).append("]");
+			}
+			else {
+				bw.append("\n			").append(operation.name).append(": ").append(operation.returns.getType(typeMap2Js));
 			}
 		}
-		bw.append("		}\n");
+		bw.append("\n		}");
 
-		bw.append("	}\n");
-		bw.append("};\n");
+		bw.append("\n	};");
 
+		bw.append("\n	return {");
+
+		first = true;
 		for (WsOperation operation : operations) {
-			bw.append(module).append(".").append(operation.name).append(" = function(");
-			boolean first = true;
+			if (!first) {
+				bw.append(",");
+			}
+			else {
+				first = false;
+			}
+			bw.append("\n\t\t").append(operation.name).append(": function(");
+			boolean firstArg = true;
 			if (operation.input != null && operation.input.elements != null) {
 				for (WsElement arg : operation.input.elements) {
-					if (!first) {
+					if (!firstArg) {
 						bw.append(", ");
 					}
 					else {
-						first = false;
+						firstArg = false;
 					}
 					bw.append(arg.name);
 				}
 			}
 
-			if (!first) {
+			if (!firstArg) {
 				bw.append(", ");
 			}
-			bw.append("callBack) {\n");
-			bw.append("	return WsdlUtils.WsdlInvoke(").append(module).append("['@module'], '").append(operation.name).append("', {");
+			bw.append("callBack) {");
+			bw.append("\n			return WsdlUtils.WsdlInvoke(").append("module, '").append(operation.name).append("', {");
 			if (operation.input != null && operation.input.elements != null) {
-				first = true;
+				firstArg = true;
 				for (WsElement arg : operation.input.elements) {
-					if (!first) {
+					if (!firstArg) {
 						bw.append(", ");
 					}
 					else {
-						first = false;
+						firstArg = false;
 					}
 					bw.append(arg.name).append(":").append(arg.name);
 				}
 			}
-			bw.append("}, callBack);\n");
-			bw.append("};\n");
+			bw.append("}, callBack);");
+			bw.append("\n		}");
 		}
+
+		bw.append("\n	};");
+		bw.append("\n})();\n");
+
 		bw.flush();
 		// */
 	}
@@ -435,8 +462,8 @@ public class Wsdl2Js {
 
 	//*
 	public static void main(String[] args) throws Exception {
-		String wsdlURL = "http://127.0.0.1:8089/wsdl/WSMath";
-		Wsdl2Js wsdl2js = new Wsdl2Js(wsdlURL, "WSMath");
+		String wsdlURL = "http://127.0.0.1:8089/wsdl/WSTest";
+		Wsdl2Js wsdl2js = new Wsdl2Js(wsdlURL, "WSTest");
 		wsdl2js.parseWsdl();
 		wsdl2js.printJsInterface(System.out);
 		//wsdl2js.printJavaInterface(System.out);
