@@ -55,7 +55,7 @@ var WsdlUtils = {
 			}
 			if (toType != null) {
 				options.mapResult = function(xml) {
-					// TODO: WsdlUtils.nsDoc.nsp.ns2 = nsp.module.xmlns;
+					// TODO: WsdlUtils.nsDoc.nsp.ns2 = module.xmlns;
 					return WsdlUtils.getObjectByXPath(xml, module.xpath[func], toType);
 				}
 			}
@@ -63,8 +63,13 @@ var WsdlUtils = {
 
 		var requestresponse = function() {
 			if (http_request.readyState == 4) {
+				//~ 1xx Informational
+				//~ 2xx Success
+				//~ 3xx Redirection
+				//~ 4xx Client Error
+				//~ 5xx Server Error
 				// on success return the response as an object, or invoke the onSuccess callback
-				if (http_request.status >= 200 && http_request.status <= 201) {
+				if (http_request.status >= 200 && http_request.status < 300) {
 					var result = http_request.responseXML
 					if (options.mapResult) {
 						result = options.mapResult(result);

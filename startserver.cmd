@@ -3,24 +3,24 @@
 REM ~ change working directory to this files parent
 cd %~dp0
 
-if not exist bin\nul mkdir bin
+if not exist out\nul mkdir out
 IF ERRORLEVEL 1 goto ERROR
 
-rem if not exist "bin/wsdl2js.jar" (
+if not exist "wsdl2js.jar" (
 
-echo compiling server ...
+	echo compiling server ...
 
-javac -sourcepath src -d bin src/server/*.java
-IF ERRORLEVEL 1 goto ERROR
+	javac -sourcepath src -d out src/server/*.java
+	IF ERRORLEVEL 1 goto ERROR
 
-jar cvf bin/wsdl2js.jar -C bin/ .
-IF ERRORLEVEL 1 goto ERROR
-rem )
+	jar cvf wsdl2js.jar -C out/ .
+	IF ERRORLEVEL 1 goto ERROR
+)
 
 echo
 echo launching server ...
 
-java -cp bin/wsdl2js.jar server.WSApplication
+java -cp wsdl2js.jar server.WSApplication
 IF ERRORLEVEL 1 goto ERROR
 
 goto EXIT

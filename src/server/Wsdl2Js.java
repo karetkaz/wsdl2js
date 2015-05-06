@@ -462,7 +462,7 @@ public class Wsdl2Js {
 
 	//*
 	public static void main(String[] args) throws Exception {
-		String wsdlURL = "http://127.0.0.1:8089/wsdl/WSTest";
+		String wsdlURL = "http://localhost:8090/wsdl/WSTest";
 		Wsdl2Js wsdl2js = new Wsdl2Js(wsdlURL, "WSTest");
 		wsdl2js.parseWsdl();
 		wsdl2js.printJsInterface(System.out);
